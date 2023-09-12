@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Chocolate Pack</title>
+    <style>
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Custom Chocolate Pack</h1>
+    <form id="chocolateForm">
+        <label>
+            <input type="checkbox" name="chocolate" value="Dark Chocolate">
+            Dark Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Milk Chocolate">
+            Milk Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="White Chocolate">
+            White Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Caramel Chocolate">
+            Caramel Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Hazelnut Chocolate">
+            Hazelnut Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Almond Chocolate">
+            Almond Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Fruit Chocolate">
+            Fruit Chocolate
+        </label>
+        <label>
+            <input type="checkbox" name="chocolate" value="Mint Chocolate">
+            Mint Chocolate
+        </label>
+    </form>
+    <p>Total Price: $<span id="totalPrice">0.00</span></p>
+
+    <script>
+        document.getElementById("chocolateForm").addEventListener("change", function() {
+            let selectedChocolates = Array.from(document.querySelectorAll('input[name="chocolate"]:checked'));
+            let totalPrice = selectedChocolates.reduce((acc, checkbox) => {
+                return acc + 2.50; // Assuming each chocolate costs $2.50
+            }, 0);
+            document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
+        });
+    </script>
+</body>
+</html>
